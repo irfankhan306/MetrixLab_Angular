@@ -23,6 +23,9 @@
             </mat-card>
         </div>
     </div>
+    <mat-paginator [length]="totalEmployee" [pageSize]="8" [pageSizeOption]="[8,12]" (page)="onPageChange($event)">
+        
+    </mat-paginator>
 </div>
 
 <div class="container">

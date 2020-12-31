@@ -23,7 +23,7 @@ export class EmployeeCardComponent implements OnInit {
               private _empService: EmpServiceService) { }
 
   ngOnInit() {
-    this._http.get('https://reqres.in/api/users?page=2').subscribe((data) => {
+    this._http.get('https://reqres.in/api/users?page=1').subscribe((data) => {
       this.totalEmployee = data['total'];
       this.employeeData = data['data'];
       this._empService.empData = this.employeeData;
@@ -42,6 +42,17 @@ export class EmployeeCardComponent implements OnInit {
     this.mode = 'edit';
     this.addEmp = true;
     this.isHide = true;
+  }
+
+  onPageChange(event) {
+    const page = event.pageIndex + 1;
+    const url = 'https://reqres.in/api/users?page=' + page;
+    this._http.get(url).subscribe((data) => {
+      this.totalEmployee = data['total'];
+      this.employeeData = data['data'];
+      this._empService.empData = this.employeeData;
+      this.totalEmployee = this.totalEmployee;
+    });
   }
 
 }
