@@ -1,0 +1,53 @@
+<div>
+<div class="container" style="display: flex; padding: 20px;">
+    <div>
+        <img mat-card-image src="{{empData.avatar}}" alt="image" *ngIf="mode === 'view'">
+        <img mat-card-image src="{{imgUrl}}" alt="image" *ngIf="mode === 'edit'">
+    </div>
+    <div style="margin-left: 50px;">
+        <div *ngIf="mode === 'view'" style="margin-bottom: 20px;">
+            <label>Employee Id</label>
+            <span style="margin-left: 55px;">
+                {{empData.id}}
+            </span>
+        </div>
+        <div>
+            <label>First Name</label>
+            <input type="text" [(ngModel)]="fName" class="fName" *ngIf="mode === 'edit'">
+            <span *ngIf="mode === 'view'" style="margin-left: 55px;">
+                {{empData.first_name}}
+            </span>
+        </div>
+        <br>
+        <div>
+            <label>Last Name</label>
+            <input type="text" [(ngModel)]="lName" class="fName" *ngIf="mode === 'edit'">
+            <span *ngIf="mode === 'view'" style="margin-left: 55px;">
+                {{empData.last_name}}
+            </span>
+        </div>
+        <br>
+        <div>
+            <label>Email Address</label>
+            <input type="email" class="email fName" [(ngModel)]="email" style="margin-left: 35px;" *ngIf="mode === 'edit'">
+            <span *ngIf="mode === 'view'" style="margin-left: 31px;">
+                {{empData.email}}
+            </span>
+        </div>
+        <div>
+            <button class="btn-addEmp" (click)="addEmployee(fName, lName, email)" *ngIf="mode === 'edit'">Add Employee</button>
+        </div>
+        <div style="display: flex;">
+            <div>
+                <button class="btn-update" (click)="update(empData)" *ngIf="mode === 'view'">
+                    <span>Update</span></button>
+            </div>
+            <div style="margin-left: 30px;">
+                <button class="btn-remove" (click)="remove(empData)" *ngIf="mode === 'view'">
+                    <span>Remove</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

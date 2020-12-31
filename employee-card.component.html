@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="nav-bar" fxLayout="row wrap" style="padding: 30px;margin: 1px; margin-bottom: 30px;"> 
+        <span> Workforce</span>
+        <div style="margin-top: -5px; margin-left: 40px;">
+            <button class="btn" [ngClass]="isActive? 'btn-clr': 'btn-clr1'" (click)="isHide=false; isActive=true; addEmp=false">Employees</button> 
+        </div>
+        <div style="margin-top: -5px; margin-left: 10px;">
+            <button class="btn" [disabled]="false" [ngClass]="isActive ? 'btn-clr1': 'btn-clr'" (click)="addEmployee(); isActive=false">Add Employees</button> 
+        </div>
+    </div>
+    <div style="float: right; margin-top: -15px; margin-right: 10px;">
+        <span class="total-emp">Total 0f </span> <strong class="emp-count" >{{totalEmployee}}</strong> <span class="total-emp"> employees</span>
+    </div>
+    <div fxLayout="row wrap" fxLayoutGap="16px grid" *ngIf="!isHide" class="card-div">
+        <div fxFlex="25%" *ngFor="let emp of employeeData">
+            <mat-card (click)="onClickEmp(emp)">
+                <mat-card-content>
+                    <img mat-card-image src="{{emp.avatar}}" alt="image" >
+                    <mat-card-footer style="margin-top: -19px; padding: 1px; background-color: blue;">
+                        <p style="color: white; margin: 10px; text-align: center;" >{{emp.first_name}} {{emp.last_name}}</p>
+                    </mat-card-footer>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <app-edit-employee-card *ngIf="addEmp" [mode]="mode" [empData]="empData"></app-edit-employee-card>
+</div>
