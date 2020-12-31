@@ -1,0 +1,43 @@
+.container {
+    padding: 16px;
+}
+
+.nav-bar {
+    height: 30px;
+    padding: 8px;
+    margin: 10px;
+    border-bottom: 1px solid lightgray;
+    background-color: lightgray;
+}
+
+.btn {
+    height: 32px;
+    width: 106px;
+    border: 0px;
+    margin-left: 30px;
+    margin-top: -10px;
+    border-radius: 3px;
+}
+
+.btn-clr1 {
+    background: lightseagreen;
+    color: white;
+}
+
+.btn-clr {
+    background: blue;
+    color: white;
+}
+
+.total-emp {
+    color: lightseagreen;
+    font-size: large;
+}
+.card-div {
+    margin-top: 55px !important;
+}
+
+.emp-count {
+    color: orange;
+    font-size: large;
+}
